@@ -1,0 +1,26 @@
+<%include ../partials/header %>
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Welcome To The YelpCamp!</h1>
+        <p>View Your Hand-Picked Campground From All Over The World</p>
+        <a href='/campgrounds/new' class="btn btn-primary btn-lg" role='button'>Want To Add New Campground?</a>
+    </div>
+
+    <div class="row text-center">
+        <% for(var i=0;i<arr.length;i++){ %>
+            <div class="col-md-3 col-sm-6 col-xs-12" style="display:flex;flex-wrap:wrap;">
+                <div class="thumbnail">
+                    <img src='<%=arr[i].url%>'>
+                    <div class="caption">
+                    <p ><%=arr[i].name%></p>
+                    <p>
+                        <a href="/campgrounds/<%=arr[i].id%>" class="btn btn-primary">More Info</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        <%}%>  
+    </div>
+</div>
+<% include ../partials/footer %>
