@@ -16,7 +16,7 @@ var campground_schema= new mongoose.Schema(
             username:String,
             id:{
                 type:mongoose.Schema.Types.ObjectId,
-                ref:"comments"
+                ref:"user"
             }
         }
     });

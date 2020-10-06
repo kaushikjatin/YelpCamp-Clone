@@ -36,7 +36,7 @@ router.get('/login',function(req,res)
   res.render('login');
 })
 
-//here we have sent the successredirect and failure redirect just t avoif the 401 messgae from passport in case of failure
+//here we have sent the successredirect and failure redirect just to avoid the 401 messgae from passport in case of failure
 router.post('/login',passport.authenticate('local',{
   successRedirect:'/campgrounds',
   failureRedirect:'/login'

@@ -8,7 +8,7 @@ var User=require('./models/user');
 var commentroute=require('./routes/comments');
 var authroute=require('./routes/auth');
 var campgroundroute=require('./routes/campgrounds');
-var methodOverride=require('method-override');
+var methodOverride=require('method-override');// http normally support get,and post..but not put and delete requests...so this one helps in that
 var flash=require('connect-flash');
 
 mongoose.connect('mongodb://localhost/yelp_camp');
@@ -40,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req,res,next)
 {
-  res.locals.user=req.user;
+  res.locals.user=req.user;  // these lines make the user available to the template
   res.locals.error=req.flash("error");
   res.locals.success=req.flash("success");
   next();
@@ -71,10 +71,6 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-
-//  var Seed=require("./seed");
-//  Seed();
 
 app.get('/',function(req,res)
 {

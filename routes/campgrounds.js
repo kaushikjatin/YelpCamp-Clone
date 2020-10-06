@@ -1,5 +1,5 @@
 var express=require('express');
-var router=express.Router();
+var router=express.Router();  // it is a middleware...which is used for creating mosular route handlers...
 var campgrounds=require("../models/campground");
 var middleware=require("../middleware");
 
